@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" ng-app='phonecatApp'> 
+	<head>
+		<meta charset="utf-8">
+		<!-- bind variable to the end of the text  -->
+		<!-- <title ng-bind-template="Google Phone Gallery: {{query}}">Google Phone Gallery</title> -->
+		<!-- <title>Google Phone Gallery: {{query}}</title> --> <!-- I think the problem is model query is declaed after this usage -->
+		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<script src="lib/angular/angular.js"></script>
+		<script src='js/controller.js'></script>
+	</head>
+	<body ng-controller='PhoneListCtrl'> 
+		Search: <input ng-model="query">
+		Sort by:
+		<select ng-model="orderProp"> <!-- both query and orderProp are key words, strictly speaking, pre-defined functions -->
+			<option value="name">Alphabetical</option>
+			<option value="-age">Newest</option>
+			<option value="snippet"> Others </option>
+		</select>
+
+		{{orderProp}}
+
+		<ul class="phones">
+			<!-- both orderBy and filter can be seen as filters of ngrepeat -->
+			<!-- model changing will cause the ngRepeat changes, this becuase the data-binding, Data-View-Model -->
+			<!-- This template acting as a controller, connect the View and Model -->
+			<li ng-repeat="phone in phones | filter:query | orderBy:orderProp"> 
+			{{phone.name}}
+			<p>{{phone.snippet}}</p>
+			</li>
+		</ul>
+	</body>
+</html>

@@ -1,0 +1,98 @@
+body {
+	padding: 0;
+	margin: 0;
+}
+
+header {
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+}
+
+.search-container {
+}
+
+.full-width-block {
+	width: 100%;
+}
+
+.one-third-span {
+	width: 33%;
+	display: inline-block;
+}
+
+.span10{
+	width: 100%;
+}
+
+.span8 {
+	width: 80%;
+}
+
+.flex-container {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-box;
+	display: box;
+}
+
+.flex-element {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-ms-box-flex: 1;
+	box-flex: 1;
+}
+
+.right-fluid {
+	float: right;
+}
+
+.left-fluid {
+	float: left;
+}
+
+.easy-box {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.btm-border {
+	border-bottom: 1px solid #000;
+}
+
+.no-vertical-margin {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.no-horizontal-padding {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.bg-container {
+	display: block;
+}
+
+.border-sides {
+	border: 1px solid #FFF;
+	border-width: 0 1px 0 1px;
+}
+
+dboder-left {
+	border: 1px solid #FFF;
+	border-width-left: 1px;
+}
+
+.mid-block {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.non-style-list {
+	list-style: none;
+}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" ng-app='phonecatApp' ng-controller='PhoneListCtrl'>
+	<head>
+		<meta charset="utf-8">
+		<!-- bind variable to the end of the text  -->
+		<title ng-bind-template="Google Phone Gallery: {{query}}">Google Phone Gallery</title>
+		<title>Google Phone Gallery: {{query}}</title> <!-- I think the problem is model query is declaed after this usage -->
+		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<script src="lib/angular/angular.js"></script>
+		<script src='js/controllers.js'></script>
+	</head>
+	<body> 
+
+		<p> There are {{phones.length}} phones: </p>
+		<ul>
+			<li ng-repeat='phone in phones'> <!-- ng-repeat declare variable in repeat 'var in array'-->
+			{{phone.name}}
+			<p>{{phone.snippet}}</p>
+			</li>
+		</ul>
+
+		<p> My name is {{name}} </p>
+
+		<table>
+			<tr>
+				<th>row number</th>
+			</tr>
+			<tr ng-repeat='i in [1, 2 ,3, 4, 5, 6]'>
+				<td>count: {{i + 10}}</td>
+			</tr>
+		</table>
+
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span2">
+					<!--Sidebar content-->
+					<!--ngModel is a variable element can be dynamically update-->
+					Search: <input ng-model="query">
+				</div>
+
+				<div class="span10">
+					<!--Body content-->
+					<ul class="phones">
+						<li ng-repeat="phone in phones | filter:query">
+						{{phone.name}}
+						<p>{{phone.snippet}}</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	</body>
+</html>

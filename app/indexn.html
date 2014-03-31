@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="FREYJA" ng-controller='GlobalCtrl'>
+<head>
+	<meta charset="UTF-8">
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular/angular-route.js"></script>
+	<title nb-bind-template=""></title>
+</head>
+<body>
+	<div class='container-fluid'>
+		<div class='span1 side-menu'>
+			<div class='tag-block'>
+				<span class='tab-block btn'>Shopping List</span>
+			</div>
+			<div class='tag-block'>
+				<span class='tab-block btn'>Daily Report</span>
+			</div>
+			<div class='tag-block'>
+				<span class='tab-block btn'>Updating</span>
+			</div>
+		</div>
+
+		<div class="span10">
+			<form action="">
+				<ul>
+					<li ng-repeat='prod in prods'></li>
+				</ul>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
+

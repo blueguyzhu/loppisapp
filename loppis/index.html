@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='loppisApp'>
+<head>
+	<meta charset="UTF-8">
+	<title>Loppis</title>
+	<link rel='stylesheet' href='css/loppis_gb.css'>
+	<link rel='stylesheet' href='css/frame.css'>
+	<script src='lib/angular/angular.js'></script>
+	<script src='lib/angular/angular-route.js'></script>
+	<script src='lib/jquery/jquery-1.10.2.js'></script>
+	<script src='js/controller.js'></script>
+	<script src='js/app.js'></script>
+</head>
+<body ng-controllr='rootCtrl'>
+	<header class="full-width-block">
+		<div id="top_bar" class="search-container">
+			<div id="top_bar_z" class="span8 mid-block easy-box">
+				<form id='top_search_form' action="">
+					<div class='search_input_div'>
+						<input ng-model='query' type="text">
+						<!--<button class='clear_txt'></button>-->
+					</div>
+					<div class='search_trigger_div'>
+						<button class='search_btn'></button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div id='tab_box'>
+			<ul class='tabs'>
+				<li>price</li><!--
+				--><li>distance</li><!--
+				--><li>liked</li><!--
+				--><li>category</li>
+			</ul>
+		</div>
+	</header>
+
+	<div ng-view></div>
+
+
+	<footer class="full-width-block" ng-controller='footerCtrl'>
+	<div class="full-width-block" id='footer_tab_container'>
+		<table class="full-width-block">
+			<tr>
+				<td class="one-third-span" align="center" ng-click='skipToBuy()'>
+					<div class="bg-container">
+						<img ng-src="{{buy_btn_img}}" alt="">
+					</div>
+				</td>
+				<td class="one-third-span border-sides" align="center" ng-click='skipToMe()'>
+					<div class="bg-container">
+						<img ng-src="{{me_btn_img}}" alt="" >
+					</div>
+				</td>
+				<td class="one-third-span" align="center" ng-click='skipToSell()'>
+					<div class="bg-container">
+						<img ng-src="{{sell_btn_img}}" alt="">
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	</footer>
+
+</body>
+</html>
