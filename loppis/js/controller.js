@@ -3,18 +3,43 @@ var loppisControllers = angular.module ('loppisController', []);
 var baseUrl = "http://limitstudio.com/one/";
 var prodUrl = baseUrl + "/products/homePage.do?";
 
-loppisControllers.controller('buyListCtrl', ['$scope', '$http',
-		function ($scope, $http) {
+loppisControllers.controller('headCtrl', ['$scope', '$http', '$window',
+		function ($scope, $http, $window) {
+		}
+]);
+
+loppisControllers.controller('buyListCtrl', ['$scope', '$http', '$window',
+		function ($scope, $http, $window) {
 			$scope.page = 0;
 			$scope.lai = 0;
 			$scope.nextLink = prodUrl + "p=" + $scope.page;
 			$scope.nextLink = $scope.nextLink + "&lai=" + $scope.lai;
 
 			$http.get($scope.nextLink).success (function (data) {
-				$scope.prods = data;
+				$scope.prods = data.data.ads;
+				$scope.lai = data.data.last_aid;
+				$scope.page += 1;
 			});
+
+			$scope.loadMore = function () {
+				$scope.nextLink = prodUrl + "p=" + $scope.page;
+				$scope.nextLink = $scope.nextLink + "&lai=" + $scope.lai;
+
+				$http.get($scope.nextLink).success (function (data) {
+					$scope.prods.push (data.data.ads);
+					$scope.lai = data.data.last_aid;
+					$scope.page += 1;
+				});
+			}
 		}
 ]);
+
+
+loppisControllers.directive ("buyScrollPosition", ['$window', 
+		function ($window) {
+		}
+]);
+
 
 loppisControllers.controller('mePageCtrl', ['$scope', '$http',
 		function ($scope, $http) {
@@ -23,6 +48,12 @@ loppisControllers.controller('mePageCtrl', ['$scope', '$http',
 
 loppisControllers.controller('postPageCtrl', ['$scope', '$http',
 		function ($scope, $http) {
+		}
+]);
+
+
+loppisControllers.controller('adDetailCtrl', ['$scope', '$http', '$routeParams',
+		function ($scope, $http, $routeParams) {
 		}
 ]);
 

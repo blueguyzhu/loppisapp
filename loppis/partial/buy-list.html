@@ -1,18 +1,19 @@
 <div class='span10' ng-controller="buyListCtrl">
-	<ul class='span10 non-style-list no-vertical-margin no-horizontal-padding' id='prod_list'>
-		<li class='span10 flex-container easy-box btm-border' nt-repeat='prod in prods'>
+	<ul class='span10 non-style-list no-vertical-margin no-horizontal-padding' id='prod_list' buyScrollPosition>
+		<li class='span10 flex-container easy-box btm-border' ng-repeat='prod in prods'>
 			<div class='span10 flex-container list_item_container'>
-				<img class="prod_thumbnail_img" ng-src="{{prod.small}}" src="" alt="" height="200px" width="200px">
+				<a href="#/ad/1000"><img class="prod_thumbnail_img" ng-src="{{prod.c}}" src="" alt="" height="200px" width="200px"></a> 
 				<div class="flex-element flex-container list_item_title">
 					<div>
 						<h1>{{prod.name}}</h1>
-						<p>{{prod.liked}}</p>
+						<p> Liked: {{prod.liked}}</p>
 					</div>
 				</div>
 
-				<span class="price_span">{{prod.price}} KR</span>
+				<span class="price_span">{{prod.p}} KR</span>
 			</div>
 		</li>
+		<li ng-click="loadMore()" class='span10 container easy-box' id='load_more'>--more--</li>
 		<li class='span10 flex-container easy-box'></li>
 	</ul>
 </div>

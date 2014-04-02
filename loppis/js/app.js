@@ -17,6 +17,10 @@ loppisApp.config (['$routeProvider',
 					templateUrl: 'partial/post-page.html',
 					controller: 'postPageCtrl'
 				}).
+				when ('/ad/:adID', {
+					templateUrl: 'partial/ad-page.html',
+					controller: 'adDetailCtrl'
+				}).
 				otherwise ({
 					redirectTo: '/buy'
 				});
